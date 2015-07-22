@@ -5,4 +5,13 @@ chr_y.fa:
 
 get_rawdata: chr_y
 
+python.log:
+	python -V | tee python.log
+	bash -c '{ time python python/gccount.py; } 2>&1 | tee -a python.log'
+
+python: python.log
+
 all: get_rawdata
+
+clear:
+	rm *.log
