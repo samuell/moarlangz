@@ -3,7 +3,7 @@ chr_y.fa:
 	gunzip Homo_sapiens.GRCh37.67.dna_rm.chromosome.Y.fa.gz
 	mv Homo_sapiens.GRCh37.67.dna_rm.chromosome.Y.fa chr_y.fa
 
-get_rawdata: chr_y
+get_rawdata: chr_y.fa
 
 python.log:
 	python -V | tee python.log
@@ -11,7 +11,7 @@ python.log:
 
 python: python.log
 
-all: get_rawdata
+all: get_rawdata python
 
-clear:
+clean:
 	rm *.log
